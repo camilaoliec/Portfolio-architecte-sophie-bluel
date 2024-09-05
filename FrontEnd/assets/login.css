@@ -1,0 +1,51 @@
+main {
+    margin: 0 9vw;
+}
+
+.login-item {
+    font-weight: 600;
+}
+
+#contact {
+    margin-top: 100px;
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+}
+
+#contact form {
+    margin: 10px;
+}
+
+#contact label {
+    margin-top: 0;
+}
+
+#contact label[for="password"] {
+    margin-top: 30px;
+}
+
+#contact input {
+    height: 36px;
+    font-size: 14px;
+    font-family: 'syne';
+}
+
+#contact input[type="submit"] {
+    margin-top: 40px;
+}
+
+a {
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
+footer {
+	margin-top: 300px;
+}
+
+a:visited {
+    color: #800080;
+}
