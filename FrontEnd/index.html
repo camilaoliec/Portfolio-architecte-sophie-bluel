@@ -7,9 +7,11 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="js/app.js" defer></script>
+	<script src="./js/app.js" defer></script>
 </head>
 <body>
 <header>
@@ -18,7 +20,7 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li><a href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,14 +38,59 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes projets</h2>
+		<div class="edit-box">
+			<h2>Mes projets</h2>
+			<!-- Modal structure -->
+			<!-- Modal 1 - Suppression de travaux existants -->
+			<a href="#modal-gallery" class="js-modal">
+				<i class="fa-solid fa-pen-to-square"></i> modifier
+			  </a>
+			<aside id="modal-gallery" class="modal" aria-hidden="true" role="dialog" aria-labelledby="galleryTitle">
+			    <div class="modal-gallery-view js-modal-stop ">
+					<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
+					<h1 id="galleryTitle">Galerie photo</h1>
+					<div class="modal-gallery"></div>
+					<button class="modal-btn-add-photo">Ajouter une photo</button>
+			    </div>
+			</aside>
+				<!-- Modal 2 - Formulaire -->
+			<aside id="modal-add-photo" class="modal" aria-hidden="true" role="dialog" aria-labelledby="addPhotoTitle">
+				 <div class="modal-add-photo-view js-modal-stop" style="display: none;">
+					<button class="back-to-gallery"><i class="fa-solid fa-arrow-left"></i></button>
+					<h1 id="addPhotoTitle">Ajout photo</h1>
+					<form id="add-photo-form" enctype="multipart/form-data">
+						<label for="image" class="custom-file-upload">
+							<div class="upload-content">
+								<div class="upload-image-icon"></div>
+								<p>+ Ajouter photo</p>
+								<span class="file-size-info">jpg, png : 4mo max</span>
+							</div>
+						</label>
+						<input type="file" name="image" id="image"  accept="image/png, image/jpeg" style="display: none;" required>
+						<div aria-checked="image-preview">
+							<img id="image-preview" src="" alt="previsualisation de l'image" style="display: none;">
+						</div>
+						<label for="title">Titre</label>
+						<input type="text" name="title" id="title" required>
+
+						<label for="category">Catégorie</label>
+						<select name="category" id="category" required>
+
+						</select>
+
+						<button type="submit" class="submit-btn">Valider</button>
+					</form>
+				 </div>
+			</aside>
+		</div>
 		<div class="category-menu"></div>
 		<div class="gallery"></div>
 	</section>
+		
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
+		<form action="#" method="post" id="contactForm">
 			<label for="name">Nom</label>
 			<input type="text" name="name" id="name" autocomplete="name" required>
 			<label for="email">Email</label>
@@ -53,8 +100,8 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
-</main>
 
+</main>
 <footer>
 	<nav>
 		<ul>
