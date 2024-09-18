@@ -295,3 +295,24 @@ document.getElementById("image").addEventListener("change", function (event) {
     reader.readAsDataURL(file);
   }
 });
+
+// Logout
+document.addEventListener('DOMContentLoaded', function () {
+  const token = localStorage.getItem('token');
+  const loginLink = document.querySelector('nav ul li a[href="login.html"]');
+
+  if (token) {
+    document.querySelector('.edit-box').style.display = 'flex';
+
+    loginLink.textContent = 'logout'
+    loginLink.href = '#';
+    loginLink.classList.add('logout-link');
+    loginLink.addEventListener('click', function () {
+      // Deconnexion
+      localStorage.removeItem('token');
+      window.location.href = 'index.html';
+    });
+  }
+});
+
+

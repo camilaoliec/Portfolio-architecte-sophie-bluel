@@ -112,6 +112,10 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+.logout-link {
+	text-decoration: none;
+	color: black;
+}
 #introduction {
 	display: flex;
 	align-items: center;
@@ -186,6 +190,10 @@ justify-content: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+.js-modal {
+	text-decoration: none;
+	color: inherit;
 }
 .modal-gallery {
 	display: grid;
