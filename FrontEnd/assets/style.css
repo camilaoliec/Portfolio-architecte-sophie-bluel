@@ -142,12 +142,18 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-
+.projects-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	justify-content: center;
+}
 .edit-box {
-display: flex;
-flex-direction: row;
-align-items: baseline;
-justify-content: center;
+	margin-top: 37px;
+	display: none;
+}
+.logged-in .edit-box {
+	display: block;
 }
 
 #portfolio h2 {
@@ -170,14 +176,23 @@ justify-content: center;
 }
 
 .modal {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #0000004D;
-	display: none;
 	justify-content: center;
+	z-index: 1000;
+}
+.modal.is-visible {
+	display: flex;
+	background-color:  rgba(0, 0, 0, 0.4);
+	opacity: 1;
+	z-index: 1001;
+}
+.modal.is-visible .modal-add-photo-view {
+	display: flex;
 }
 .modal-gallery-view {
 	width: 630px;
@@ -202,20 +217,30 @@ justify-content: center;
 	justify-content: center;
 	margin-top: 40px;
 	margin-bottom: 30px;
-	padding-bottom: 60px;
+	padding-bottom: 30px;
 	border-bottom: 1px #B3B3B3 solid;
 }
 .back-to-gallery {
 	position: absolute;
-	top: 20px;
-	right: 40px;
+	top: 28px;
+	left: 40px;
 	background: none;
 	border: none;
 	cursor: pointer;
-	font-size: 22px;
+	font-size: 19px;
+}
+.js-modal-close {
+	position: absolute;
+	right: 40px;
+	top: 30px;
+	background-color: white;
+	border: none;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
 }
 #galleryTitle {
-	margin-top: 40px;
+	margin-top: 70px;
 	font-size: 26px;
 	font-family: 'work sans';
 	font-weight: 400;
@@ -251,6 +276,7 @@ justify-content: center;
 	padding: 0 20px;
 	border-color: #1D6154;
 	border: 2px solid #1D6154;
+	cursor: pointer;
 }
 .modal-add-photo-view {
 	width: 630px;
@@ -260,12 +286,12 @@ justify-content: center;
 	max-height: calc(100vh - 20px);
 	border-radius: 10px;
 	position: relative;
-	display: none;
 	flex-direction: column;
 	align-items: center;
 }
-#add-photo-title h1 {
-	margin-top: 40px;
+#addPhotoTitle {
+	margin-top: 70px;
+	margin-bottom: 30px;
 	font-size: 26px;
 	font-family: 'work sans';
 	font-weight: 400;
@@ -283,35 +309,102 @@ justify-content: center;
 	background-color: #E8F1F6;
 	width: 420px;
 	height: 169px;
-	border-radius: 10px;
+	border-radius: 3px;
 	cursor: pointer;
 	text-align: center;
 	position: relative;
+	margin-bottom: 30px;
 }
 .upload-content {
 	display: flex;
 	flex-direction: column;
 }
-.upload-image-icon {
-	width: 68px;
-	height: 59px;
-	background-image: url('path/to/upload-icon.png');
-	background-size: contain;
-	background-repeat: no-repeat;
+.fa-image {
+	font-size: 60px;
+	color: #B9C5CC;
+	margin-bottom: 10px;
 }
-.image-preview {
+.btn-add-photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 173px;
+	height: 36px;
+	border-radius: 50px;
+	background-color: #CBD6DC;
+	border: none;
+	color: #306685;
+	font-weight: 550;
+	font-family: 'work sans';
+	font-size: 14px;
+}
+.file-size-info {
+	font-family: 'work sans';
+	font-size: 10px;
+	font-weight: 300;
+	margin-top: 10px;
+}
+#image-preview {
 	height: 169px;
-	width: 100%;
-	max-width: 129px;
+	width: 420px;
 	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.image-preview img {
-	max-width: 100%;
-	max-height: 193px;
+#image-preview2 {
+	height: 169px;
+	width: 420px;
 	object-fit: contain;
+	position: absolute;
+	top: 126px;
+}
+label[for="title"] {
+	font-family: 'work sans';
+	font-weight: 500;
+	font-size: 14px;
+	color: #3D3D3D;
+	margin-bottom: 10px;
+}
+input[type="text"] {
+	border: none;
+	box-shadow: 0px 4px 14px 0px #00000017;
+	width: 420px;
+	height: 51px;
+}
+label[for="category"] {
+	font-family: 'work sans';
+	font-weight: 500;
+	font-size: 14px;
+	color: #3D3D3D;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+#category {
+	border: none;
+	box-shadow: 0px 4px 14px 0px #00000017;
+	width: 420px;
+	height: 51px;
+	margin-bottom: 30px;
+	padding: 10px;
+}
+hr {
+	border: none;
+	border-top: 2px solid #B3B3B3;
+	width: 420px;
+	margin-bottom: 30px;
+}
+.submit-btn {
+	width: 237px;
+	height: 36px;
+	background-color: #A7A7A7;
+	border: none;
+	border-radius: 60px;
+	font-family: 'syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	margin: 0 auto;
 }
 .category-menu {
 	display: flex;
@@ -378,6 +471,7 @@ figcaption {
 
 #contact input {
 	height: 36px;
+	width: 379px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
