@@ -186,6 +186,7 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 li:hover {
@@ -345,6 +346,7 @@ a {
   font-size: 9px;
   padding: 3px;
   border-radius: 2px;
+  cursor: pointer;
 }
 .modal-btn-add-photo {
   font-family: "Syne";
@@ -475,7 +477,7 @@ hr {
   border: none;
   border-top: 2px solid #b3b3b3;
   width: 420px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .submit-btn {
   cursor: pointer;
@@ -513,6 +515,7 @@ hr {
   padding: 0 20px;
   border-color: #1d6154;
   border: 2px solid #1d6154;
+  cursor: pointer;
 }
 
 .category-button:hover {
@@ -563,6 +566,7 @@ figcaption {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
 }
 #contact label {
   margin: 2em 0 1em 0;
